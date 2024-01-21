@@ -8,9 +8,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Provider store={store}>
         <Suspense fallback={<Loading />}>
-          <body suppressHydrationWarning>
-            <children />
-          </body>
+          <body suppressHydrationWarning>{children}</body>
         </Suspense>
       </Provider>
     </html>
