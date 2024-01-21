@@ -9,7 +9,9 @@ export default function UnProtectedRoute(Component) {
     const token = useSelector(selectToken);
     console.log(token);
     useEffect(() => {
-      if (token) {
+      if (!token) {
+        redirect("/login");
+      } else {
         redirect("/profile");
       }
     }, []);
