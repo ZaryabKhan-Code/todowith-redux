@@ -10,27 +10,37 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      redirect("/profile");
+      // If token is present, set loading to false
+      setLoading(false);
     }
   }, [token]);
 
   const handleLogin = () => {
     try {
-      // window.location.href = "http://localhost:3000/auth/google";
+      // Set loading to true when initiating login
+      setLoading(true);
+
+      // Simulate login with Google by redirecting to the authentication URL
       window.location.href =
         "https://twiliotest-b82fb9f88880.herokuapp.com/auth/google";
     } catch (error) {
       console.error("Login error:", error);
+      // Set loading to false in case of an error
+      setLoading(false);
     }
   };
 
   return (
-    <div>
-      <div>
-        <h1>Login Page</h1>
-        <button onClick={handleLogin}>Login with Google</button>
-      </div>
-    </div>
+    <>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <div>
+          <h1>Login Page</h1>
+          <button onClick={handleLogin}>Login with Google</button>
+        </div>
+      )}
+    </>
   );
 };
 
