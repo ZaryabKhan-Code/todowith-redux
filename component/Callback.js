@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectToken, setToken } from "@/redux/authSlice";
-import { redirect, useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setToken } from "@/redux/authSlice";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 
 const Callback = () => {
@@ -10,13 +10,6 @@ const Callback = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const existingToken =
-      useSelector(selectToken) || localStorage.getItem("token");
-    if (existingToken) {
-      console.log("Token already exists:", existingToken);
-      redirect("/profile");
-    }
-
     const verifyToken = async (token) => {
       try {
         // const response = await axios.get("http://localhost:3000/verifyToken", {
@@ -45,6 +38,7 @@ const Callback = () => {
     console.log(token);
     if (token) {
       verifyToken(token);
+      router.push("/login");
     }
   }, [dispatch, router.query]);
 
