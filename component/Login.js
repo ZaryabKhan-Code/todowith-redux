@@ -12,6 +12,7 @@ const Login = () => {
     if (token) {
       redirect("/profile");
     }
+    setLoading(false);
   }, [token]);
 
   const handleLogin = () => {
@@ -24,6 +25,9 @@ const Login = () => {
     }
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <div>
