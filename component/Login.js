@@ -32,14 +32,10 @@ const Login = () => {
 
   return (
     <>
-      {loading ? (
-        <div>Loading...</div>
-      ) : (
-        <div>
-          <h1>Login Page</h1>
-          <button onClick={handleLogin}>Login with Google</button>
-        </div>
-      )}
+      <div>
+        <h1>Login Page</h1>
+        <button onClick={handleLogin}>Login with Google</button>
+      </div>
     </>
   );
 };
