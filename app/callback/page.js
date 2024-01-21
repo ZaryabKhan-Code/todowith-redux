@@ -1,11 +1,8 @@
+import Callback from "@/component/Callback";
 import React from "react";
 
 const page = () => {
-  return (
-    <>
-      <h1>Welcome to the App</h1>
-    </>
-  );
+  return <Callback />;
 };
 
 export default page;
