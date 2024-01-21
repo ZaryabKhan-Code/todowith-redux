@@ -22,7 +22,6 @@ const Callback = () => {
           }
         );
         dispatch(setToken(token));
-        // Use localStorage instead of Cookies
         localStorage.setItem("token", token);
         router.push("/profile");
       } catch (error) {
@@ -39,7 +38,6 @@ const Callback = () => {
     console.log(token);
     if (token) {
       verifyToken(token);
-      router.push("/login");
     }
   }, [dispatch, router.query]);
 
