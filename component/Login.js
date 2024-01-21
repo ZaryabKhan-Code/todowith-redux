@@ -10,26 +10,24 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      setLoading(true);
       redirect("/profile");
     }
+    setLoading(false);
   }, [token]);
 
   const handleLogin = () => {
     try {
-      // Set loading to true when initiating login
-      setLoading(true);
-
-      // Simulate login with Google by redirecting to the authentication URL
+      // window.location.href = "http://localhost:3000/auth/google";
       window.location.href =
         "https://twiliotest-b82fb9f88880.herokuapp.com/auth/google";
     } catch (error) {
       console.error("Login error:", error);
-      // Set loading to false in case of an error
-      setLoading(false);
     }
   };
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <div>
