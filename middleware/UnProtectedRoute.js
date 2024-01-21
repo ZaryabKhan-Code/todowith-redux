@@ -13,7 +13,7 @@ export default function UnProtectedRoute(Component) {
         redirect("/profile");
       }
     }, []);
-    if (!token) {
+    if (token) {
       return;
     }
     return <Component {...props} />;
