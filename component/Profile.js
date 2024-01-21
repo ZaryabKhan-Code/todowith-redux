@@ -4,15 +4,15 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setToken } from "@/redux/authSlice";
 import ProtectedRoute from "@/middleware/ProtectedRoute";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 const Profile = () => {
   const dispatch = useDispatch();
-
+  const router = useRouter();
   const handleLogout = () => {
     dispatch(setToken(null));
     localStorage.removeItem("token");
-    redirect("/login");
+    router.push("/login");
   };
 
   return (
