@@ -38,7 +38,6 @@ const Callback = () => {
     console.log(token);
     if (token) {
       verifyToken(token);
-      router.push("/login");
     }
   }, [dispatch, router.query]);
 
