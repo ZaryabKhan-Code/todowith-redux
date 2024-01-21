@@ -2,6 +2,7 @@
 import { Provider } from "react-redux";
 import { store } from "../redux/store";
 import Loading from "./loading";
+import { Suspense } from "react";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
