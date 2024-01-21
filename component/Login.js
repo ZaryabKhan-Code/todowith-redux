@@ -3,7 +3,6 @@ import { selectToken } from "@/redux/authSlice";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { redirect } from "next/navigation";
-import Link from "next/link";
 
 const Login = () => {
   const token = useSelector(selectToken);
@@ -13,7 +12,6 @@ const Login = () => {
     if (token) {
       redirect("/profile");
     }
-    setLoading(false);
   }, [token]);
 
   const handleLogin = () => {
@@ -30,7 +28,7 @@ const Login = () => {
     <div>
       <div>
         <h1>Login Page</h1>
-        <Link onClick={handleLogin}>Login with Google</Link>
+        <button onClick={handleLogin}>Login with Google</button>
       </div>
     </div>
   );
