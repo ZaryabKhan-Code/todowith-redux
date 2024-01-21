@@ -10,8 +10,8 @@ const Login = () => {
 
   useEffect(() => {
     if (token) {
-      // If token is present, set loading to false
-      setLoading(false);
+      setLoading(true);
+      redirect("/profile");
     }
   }, [token]);
 
