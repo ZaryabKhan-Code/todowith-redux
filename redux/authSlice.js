@@ -1,7 +1,5 @@
-// redux/authSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
-// Check if the token exists in localStorage
 const initialToken =
   typeof window !== "undefined" ? localStorage.getItem("token") : null;
 

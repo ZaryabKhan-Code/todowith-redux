@@ -1,20 +1,8 @@
 "use client";
-import { selectToken } from "@/redux/authSlice";
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { redirect } from "next/navigation";
+import React from "react";
+import UnProtectedRoute from "@/middleware/UnProtectedRoute";
 
 const Login = () => {
-  const token = useSelector(selectToken);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    if (token) {
-      redirect("/profile");
-    }
-    setLoading(false);
-  }, [token]);
-
   const handleLogin = () => {
     try {
       // window.location.href = "http://localhost:3000/auth/google";
@@ -25,9 +13,6 @@ const Login = () => {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
   return (
     <div>
       <div>
@@ -38,4 +23,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default UnProtectedRoute(Login);
